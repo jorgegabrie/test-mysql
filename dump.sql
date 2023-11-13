@@ -128,6 +128,20 @@ VALUES
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
+# RESOLUÇÃO DO PROBLEMA!!!
+
+SELECT
+    c.nome AS cliente_nome,
+    c.sobrenome AS cliente_sobrenome,
+    c.data_nascimento AS cliente_data_nascimento,
+    ca.cor AS casa_cor,
+    b.nome AS bairro_nome,
+    car.modelo AS carro_modelo
+FROM
+    cliente c
+JOIN casa ca ON c.id_cliente = ca.fk_cliente
+JOIN bairro b ON ca.fk_bairro = b.id_bairro
+JOIN carro car ON c.id_cliente = car.fk_cliente;
 
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
